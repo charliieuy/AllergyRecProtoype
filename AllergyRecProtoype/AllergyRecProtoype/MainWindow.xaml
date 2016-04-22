@@ -14,10 +14,7 @@
             <local:SuggestionProvider x:Key="provider" />
             <DataTemplate x:Key="allergenTemplate">
                 <Border Padding="2">
-                    <TextBlock Text="{Binding Path=Name}"
-                               FontFamily="Segoe UI"
-                               FontSize="12"
-                               VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding Path=Name}" FontFamily="Arial" FontSize="12" VerticalAlignment="Center"/>
                 </Border>
             </DataTemplate>
             <local:AllergenTemplateSelector x:Key="AllergenTemplateSelector" AllergenTemplate="{StaticResource allergenTemplate}"/>
@@ -49,8 +46,7 @@
                 <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
                     <Label x:Name="visitLabel" Content="Visit ID:" Style="{StaticResource ResourceKey=Label}"/>
                     <Label x:Name="visitValueLabel" Content="0011234878" Style="{StaticResource ResourceKey=ValueLabel}"/>
-                </StackPanel
-                                    >
+                </StackPanel>
 
                 <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left">
                     <Label x:Name="dobLabel" Content="DOB:" Style="{StaticResource ResourceKey=Label}"/>
@@ -91,7 +87,7 @@
                                         Foreground="#428bca" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="15" Margin="5"></TextBlock>
                         <DataGrid Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="False" 
                                     x:Name="currAllergies" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Stretch"
-                                    ItemsSource="{Binding Allergies}" IsReadOnly="True">
+                                    ItemsSource="{Binding CurrentAllergies}" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Category" Width ="*" Binding="{Binding Category}" />
                                 <DataGridTextColumn Header="Type" Width ="*" Binding="{Binding Type}" />
@@ -106,7 +102,7 @@
                                         Foreground="#d9534f" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="15" Margin="5"></TextBlock>
                         <DataGrid Grid.Row="3" Grid.Column="0" AutoGenerateColumns="False" 
                                     x:Name="allergyRecDG" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
-                                    ItemsSource="{Binding AllergyRecs, Mode=TwoWay}" IsReadOnly="True">
+                                    ItemsSource="{Binding AllergyRecVMList, Mode=TwoWay}" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <DataGridTextColumn Header="Category" Width ="Auto" Binding="{Binding Category}" />
                                 <DataGridTextColumn Header="Type" Width ="Auto" Binding="{Binding Type}" />
@@ -119,7 +115,7 @@
                         <!--Reconcile Action-->
                         <DataGrid Grid.Row="3" Grid.Column="1"  AutoGenerateColumns="False" 
                                     x:Name="actionDG" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
-                                    ItemsSource="{Binding AllergyRecs, Mode=TwoWay}" IsReadOnly="True" 
+                                    ItemsSource="{Binding AllergyRecVMList, Mode=TwoWay}" IsReadOnly="True" 
                                     GridLinesVisibility="None" BorderThickness="0">
                             <DataGrid.Columns>
                                 <!--Reconcile Checkboxes-->
@@ -163,7 +159,7 @@
                         
                         <DataGrid Grid.Row="3" Grid.Column="2"  AutoGenerateColumns="False" 
                                     x:Name="reccDG" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
-                                    ItemsSource="{Binding AllergyRecs, Mode=TwoWay}" IsReadOnly="True">
+                                    ItemsSource="{Binding AllergyRecVMList, Mode=TwoWay}" IsReadOnly="True">
                             <DataGrid.Columns>
                                 <!--Reconcile Checkboxes-->
                                 <!--<DataGridTemplateColumn>
@@ -191,7 +187,7 @@
                                                                  IconVisibility="Hidden"
                                                                  ItemTemplateSelector="{StaticResource AllergenTemplateSelector}"
                                                                  Provider="{StaticResource ResourceKey=provider}"
-                                                                 SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                 SelectedItem="{Binding Path=SelectedAllergen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
                                                                  x:Name="Actb">
                                                     <wpf:AutoCompleteTextBox.LoadingContent>
                                                         <TextBlock Text="Loading..."

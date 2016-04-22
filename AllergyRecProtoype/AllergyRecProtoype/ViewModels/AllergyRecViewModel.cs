@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using WpfControls.Editors;
 
 namespace AllergyRecProtoype
 {
@@ -11,9 +12,23 @@ namespace AllergyRecProtoype
     {
         private readonly AllergyRec _allergyRec;
 
+        private List<AllergenViewModel> _allergens;
+        public List<AllergenViewModel> Allergens
+        {
+            get { return _allergens; }
+            set { _allergens = value; OnPropertyChanged("Allergens"); }
+        }
+
         public AllergyRecViewModel(AllergyRec allergyRec)
         {
             _allergyRec = allergyRec;
+            _allergens = new List<AllergenViewModel>();
+            DataManager.Instance.AllergenList.ForEach(x => _allergens.Add(new AllergenViewModel(x)));
+
+            SelectedAllergen = new AllergenViewModel(new Allergen { Name = "", Value = 0 });
+            SelectedAllergen.PropertyChanged += (s, e) => { Console.WriteLine("SubItem PropertyChanged"); };
+
+            //_allergens = DataManager.Instance.AllergenList.Select(x => new AllergenViewModel(x)).ToList();
         }
 
         public bool Reconcile
@@ -52,10 +67,15 @@ namespace AllergyRecProtoype
             set { _allergyRec.Reactions = value; OnPropertyChanged("Reactions"); }
         }
 
-        public string AllscriptsAllergen
+        public AllergenViewModel SelectedAllergen
         {
-            get { return _allergyRec.AllscriptsAllergen; }
-            set { _allergyRec.AllscriptsAllergen = value; OnPropertyChanged("AllscriptsAllergen"); }
+            get { return new AllergenViewModel(_allergyRec.AllscriptsAllergen); }
+            set
+            {
+                if (value != null)
+                    _allergyRec.AllscriptsAllergen = new Allergen { Name = value.Name, Value = value.Value };
+                OnPropertyChanged("SelectedAllergen");
+            }
         }
 
         public string AllscriptsReactions
@@ -69,7 +89,5 @@ namespace AllergyRecProtoype
             get { return _allergyRec.EnteredOn; }
             set { _allergyRec.EnteredOn = value; OnPropertyChanged("EnteredOn"); }
         }
-
-        public List<ReactionViewModel> ReactionList { get; set; }
     }
 }

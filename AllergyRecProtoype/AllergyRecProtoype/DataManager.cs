@@ -10,7 +10,7 @@ namespace AllergyRecProtoype
 {
     public class DataManager
     {
-        public List<AllergyRec> Allergies { get; set; }
+        public List<AllergyRec> AllergyRecList { get; set; }
         public List<Allergen> AllergenList { get; set; }
         public List<Reaction> ReactionList { get; set; }
         
@@ -24,7 +24,7 @@ namespace AllergyRecProtoype
         /// </summary>
         private DataManager() 
         {
-            Allergies = new List<AllergyRec> { 
+            AllergyRecList = new List<AllergyRec> { 
                 new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Food", Allergen = "AGAR (FOOD)", Campus = "EAST" , Reactions = "Anaphylaxis", AllscriptsReactions = "", EnteredOn = "03/30/2016"},
                 new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Food", Allergen = "CAFEEINE (FOOD)", Campus = "EAST" , Reactions = "Fever", AllscriptsReactions = "", EnteredOn = "03/30/2016"},
                 new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Latex", Allergen = "LATEX", Campus = "EAST" , Reactions = "Unknown", AllscriptsReactions = "", EnteredOn = "03/30/2016"},

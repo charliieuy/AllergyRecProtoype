@@ -37,6 +37,26 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DotNetProjects.DataVisualization.Toolkit, Version=5.0.26.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetProjects.Wpf.Toolkit.5.0.26\lib\net40\DotNetProjects.DataVisualization.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetProjects.Input.Toolkit, Version=5.0.26.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetProjects.Wpf.Toolkit.5.0.26\lib\net40\DotNetProjects.Input.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetProjects.Layout.Toolkit, Version=5.0.26.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetProjects.Wpf.Toolkit.5.0.26\lib\net40\DotNetProjects.Layout.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetProjects.Wpf.Extended.Toolkit, Version=2.7.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetProjects.Extended.Wpf.Toolkit.2.7.0\lib\net40\DotNetProjects.Wpf.Extended.Toolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DotNetProjects.WPF.Themes, Version=5.0.26.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetProjects.Wpf.Toolkit.5.0.26\lib\net40\DotNetProjects.WPF.Themes.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Web.Extensions" />

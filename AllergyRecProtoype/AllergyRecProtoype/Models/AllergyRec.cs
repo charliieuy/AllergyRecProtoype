@@ -15,7 +15,7 @@ namespace AllergyRecProtoype
         public string Campus { get; set; }
         public string Allergen { get; set; }
         public string Reactions { get; set; }
-        public string AllscriptsAllergen { get; set; }
+        public Allergen AllscriptsAllergen { get; set; }
         public string AllscriptsReactions { get; set; }
         public string EnteredOn { get; set; }
         public List<Reaction> ReactionList { get; set; }

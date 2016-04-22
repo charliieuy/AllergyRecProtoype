@@ -7,35 +7,28 @@ namespace AllergyRecProtoype
 {
     class MainWindowViewModel : BaseViewModel
     {
-        private List<AllergyRecViewModel> _allergies;
-        public List<AllergyRecViewModel> Allergies
+        private List<AllergyRecViewModel> _allergyRecVMList;
+        public List<AllergyRecViewModel> AllergyRecVMList
         {
-            get { return _allergies; }
-            set { _allergies = value; OnPropertyChanged("Allergies"); }
+            get { return _allergyRecVMList; }
+            set { _allergyRecVMList = value; OnPropertyChanged("Allergies"); }
         }
 
-        public List<AllergyRecViewModel> AllergyRecs { get; set; }
-        public List<string> Reactions { get; set; }
-
+        public List<AllergyRec> CurrentAllergies { get; set; }
 
         public MainWindowViewModel()
         {
-            var allergies = DataManager.Instance.Allergies;
+            var allergyRecs = DataManager.Instance.AllergyRecList;
+            var allergyRecVMList = new List<AllergyRecViewModel>();
+            allergyRecs.ForEach(a => allergyRecVMList.Add(new AllergyRecViewModel(a)));
+            AllergyRecVMList = allergyRecVMList.Where(x => x.Reconcile == false).ToList();
+
             var reactions = DataManager.Instance.ReactionList;
 
             var reactionListViewModels = new List<ReactionViewModel>();
             reactions.ForEach(r => reactionListViewModels.Add(new ReactionViewModel(r)));
 
-            var allergiesViewModels = new List<AllergyRecViewModel>();
-            allergies.ForEach(a => allergiesViewModels.Add(new AllergyRecViewModel(a)));
-
-            //allergiesViewModels.ForEach(a => a.ReactionList.AddRange(reactionListViewModels));
-            Allergies = allergiesViewModels.Where(x => x.Reconcile == false).ToList();
-            AllergyRecs = allergiesViewModels.Where(x => x.Reconcile == true).ToList();
-
-            Reactions = new List<string>();
-            reactions.ForEach(r => Reactions.Add(r.Name));
+            CurrentAllergies = allergyRecs.Where(a => a.Reconcile == false).ToList();
         }
-
     }
 }
