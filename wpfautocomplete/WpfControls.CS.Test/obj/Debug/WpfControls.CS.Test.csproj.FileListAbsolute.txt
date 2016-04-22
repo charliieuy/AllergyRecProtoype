@@ -1,0 +1,17 @@
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\bin\Debug\WpfControls.CS.Test.exe.config
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\bin\Debug\WpfControls.CS.Test.exe
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\bin\Debug\WpfControls.CS.Test.pdb
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\bin\Debug\WpfControls.dll
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\bin\Debug\WpfControls.pdb
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\WpfControls.CS.Test.csprojResolveAssemblyReference.cache
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\Window1.g.cs
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\App.g.cs
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\WpfControls.CS.Test_MarkupCompile.cache
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\WpfControls.CS.Test_MarkupCompile.lref
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\Window1.baml
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\WpfControls.CS.Test.g.resources
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\WpfControls.CS.Test.Properties.Resources.resources
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\WpfControls.CS.Test.csproj.GenerateResource.Cache
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\WpfControls.CS.Test.exe
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls.CS.Test\obj\Debug\WpfControls.CS.Test.pdb

@@ -1,0 +1,14 @@
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\bin\Debug\WpfControls.dll
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\bin\Debug\WpfControls.pdb
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\bin\Debug\WpfControls.xml
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\Themes\Generic.baml
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\GeneratedInternalTypeHelper.g.vb
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\WpfControls_MarkupCompile.cache
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\WpfControls_MarkupCompile.lref
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\Editors\AutoCompleteTextBox\Themes\Generic.baml
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\WpfControls.g.resources
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\WpfControls.Resources.resources
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\WpfControls.vbproj.GenerateResource.Cache
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\WpfControls.dll
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\WpfControls.xml
+C:\Users\cau9006\Documents\Visual Studio 2013\Projects\wpfautocomplete\WpfControls\obj\Debug\WpfControls.pdb

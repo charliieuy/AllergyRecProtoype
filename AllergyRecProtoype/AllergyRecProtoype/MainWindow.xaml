@@ -1,0 +1,275 @@
+﻿<Window x:Class="AllergyRecProtoype.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wpf="http://wpfcontrols.com/"
+        xmlns:local="clr-namespace:AllergyRecProtoype"
+        xmlns:xtoolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        Title="MainWindow" Height="768" Width="1024">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/Style/Style.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Style/ComboBox.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+            <local:SuggestionProvider x:Key="provider" />
+            <DataTemplate x:Key="allergenTemplate">
+                <Border Padding="2">
+                    <TextBlock Text="{Binding Path=Name}"
+                               FontFamily="Segoe UI"
+                               FontSize="12"
+                               VerticalAlignment="Center"/>
+                </Border>
+            </DataTemplate>
+            <local:AllergenTemplateSelector x:Key="AllergenTemplateSelector" AllergenTemplate="{StaticResource allergenTemplate}"/>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <StackPanel>
+            <!--Patient Information Grid-->
+            <Grid Style="{StaticResource PatientInfoGrid}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" x:Name="patientName" Text="Last Name, First Name" Style="{StaticResource ResourceKey=PatientNameLabel}"/>
+
+                <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                    <Label x:Name="mrnLabel" Content="Patient ID:" Style="{StaticResource ResourceKey=Label}"/>
+                    <Label x:Name="mrnValueLabel" Content="7005290" Style="{StaticResource ResourceKey=ValueLabel}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Grid.Column="2" Orientation="Horizontal">
+                    <Label x:Name="visitLabel" Content="Visit ID:" Style="{StaticResource ResourceKey=Label}"/>
+                    <Label x:Name="visitValueLabel" Content="0011234878" Style="{StaticResource ResourceKey=ValueLabel}"/>
+                </StackPanel
+                                    >
+
+                <StackPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Label x:Name="dobLabel" Content="DOB:" Style="{StaticResource ResourceKey=Label}"/>
+                    <Label x:Name="dobValue" Content="03/28/1985" Style="{StaticResource ResourceKey=ValueLabel}"/>
+                    <Label x:Name="ageLabel" Content="Age: " Style="{StaticResource ResourceKey=Label}"/>
+                    <Label x:Name="ageValueLabel" Content="30" Style="{StaticResource ResourceKey=ValueLabel}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Label x:Name="gende4rLabel" Content="Gender:" Style="{StaticResource ResourceKey=Label}"/>
+                    <Label x:Name="genderValue" Content="Male" Style="{StaticResource ResourceKey=ValueLabel}"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
+                    <Label x:Name="locationLabel" Content="Location ID:" Style="{StaticResource ResourceKey=Label}"/>
+                    <Label x:Name="locationValueLabel" Content="CH 3 Tower CT-MRAC" Style="{StaticResource ResourceKey=ValueLabel}"/>
+                </StackPanel>
+            </Grid>
+
+            <!--Allergy Information DataGrid-->
+            <Border BorderBrush="Gray" BorderThickness="1" Margin="5,0,5,0">
+                <ScrollViewer>
+                    <Grid Style="{StaticResource DataGrid}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+
+                        <!--Current Allergies-->
+                        <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Current Allergies" 
+                                        Foreground="#428bca" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="15" Margin="5"></TextBlock>
+                        <DataGrid Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="False" 
+                                    x:Name="currAllergies" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden" HorizontalAlignment="Stretch"
+                                    ItemsSource="{Binding Allergies}" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Category" Width ="*" Binding="{Binding Category}" />
+                                <DataGridTextColumn Header="Type" Width ="*" Binding="{Binding Type}" />
+                                <DataGridTextColumn Header="Allergen" Width ="*" Binding="{Binding Allergen}"/>
+                                <DataGridTextColumn Header="Reactions" Width ="*" Binding="{Binding Reactions}"/>
+                                <DataGridTextColumn Header="Entered" Width ="75" Binding="{Binding EnteredOn}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <!--Reconcile Allergies-->
+                        <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="ATTENTION: Additional Allergies Found at Other Campuses" 
+                                        Foreground="#d9534f" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="15" Margin="5"></TextBlock>
+                        <DataGrid Grid.Row="3" Grid.Column="0" AutoGenerateColumns="False" 
+                                    x:Name="allergyRecDG" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                                    ItemsSource="{Binding AllergyRecs, Mode=TwoWay}" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Category" Width ="Auto" Binding="{Binding Category}" />
+                                <DataGridTextColumn Header="Type" Width ="Auto" Binding="{Binding Type}" />
+                                <DataGridTextColumn Header="Campus" Width ="Auto" Binding="{Binding Campus}"/>
+                                <DataGridTextColumn Header="Allergen" Width ="Auto" Binding="{Binding Allergen}"/>
+                                <DataGridTextColumn Header="Reactions" Width ="Auto" Binding="{Binding Reactions}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+
+                        <!--Reconcile Action-->
+                        <DataGrid Grid.Row="3" Grid.Column="1"  AutoGenerateColumns="False" 
+                                    x:Name="actionDG" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                                    ItemsSource="{Binding AllergyRecs, Mode=TwoWay}" IsReadOnly="True" 
+                                    GridLinesVisibility="None" BorderThickness="0">
+                            <DataGrid.Columns>
+                                <!--Reconcile Checkboxes-->
+                                <DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.HeaderStyle>
+                                        <Style TargetType="DataGridColumnHeader">
+                                            <Setter Property="Height" Value="30" />
+                                            <Setter Property="Background" Value="White" />
+                                        </Style>
+                                    </DataGridTemplateColumn.HeaderStyle>
+                                    <DataGridTemplateColumn.CellStyle>
+                                        <Style TargetType="DataGridCell">
+                                            <Setter Property="BorderThickness" Value="0"/>
+                                            <!--<Setter Property="Padding" Value="2"/>
+                                            <Setter Property="Template">
+                                                <Setter.Value>
+                                                    <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                                        <Border Padding="{TemplateBinding Padding}" SnapsToDevicePixels="True">
+                                                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                                                              VerticalAlignment="{TemplateBinding VerticalAlignment}" 
+                                                                              HorizontalAlignment="{TemplateBinding HorizontalAlignment}"/>
+                                                        </Border>
+                                                    </ControlTemplate>
+                                                </Setter.Value>
+                                            </Setter>-->
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="White"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </DataGridTemplateColumn.CellStyle>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <!--<CheckBox Style="{StaticResource AndroidCheckBoxStyle}" Visibility="{Binding ShowReconcile}"></CheckBox>-->
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                        
+                        <DataGrid Grid.Row="3" Grid.Column="2"  AutoGenerateColumns="False" 
+                                    x:Name="reccDG" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
+                                    ItemsSource="{Binding AllergyRecs, Mode=TwoWay}" IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <!--Reconcile Checkboxes-->
+                                <!--<DataGridTemplateColumn>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <CheckBox Style="{StaticResource AndroidCheckBoxStyle}" Visibility="{Binding ShowReconcile}"></CheckBox>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>-->
+                                <!--Allergen Autocomplete-->
+                                <DataGridTemplateColumn Width="*">
+                                    <DataGridTemplateColumn.Header>
+                                        <Label Content="Allergen" Foreground="White"/>
+                                    </DataGridTemplateColumn.Header>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <StackPanel>
+                                                <wpf:AutoCompleteTextBox VerticalAlignment="Top"
+                                                                 Visibility="{Binding ShowReconcile}"
+                                                                 Height="30"
+                                                                 Grid.Column="1"
+                                                                 DisplayMember="Name"
+                                                                 Watermark="Search Allergen"
+                                                                 IconPlacement="Left"
+                                                                 IconVisibility="Hidden"
+                                                                 ItemTemplateSelector="{StaticResource AllergenTemplateSelector}"
+                                                                 Provider="{StaticResource ResourceKey=provider}"
+                                                                 SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                                                 x:Name="Actb">
+                                                    <wpf:AutoCompleteTextBox.LoadingContent>
+                                                        <TextBlock Text="Loading..."
+                                                                            Margin="5"
+                                                                            FontSize="14" />
+                                                    </wpf:AutoCompleteTextBox.LoadingContent>
+                                                </wpf:AutoCompleteTextBox>
+                                            </StackPanel>
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <!--Reactions Combobox-->
+                                <DataGridTemplateColumn Width="*">
+                                    <DataGridTemplateColumn.Header>
+                                        <Label Content="Reactions" Foreground="White"/>
+                                    </DataGridTemplateColumn.Header>
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <!--<ComboBox Visibility="{Binding ShowReconcile}">
+                                                <ComboBoxItem Content="Anaphylaxis"></ComboBoxItem>
+                                                <ComboBoxItem Content="Congestion"></ComboBoxItem>
+                                                <ComboBoxItem Content="Coughing"></ComboBoxItem>
+                                                <ComboBoxItem Content="Dizziness"></ComboBoxItem>
+                                                <ComboBoxItem Content="Eczema"></ComboBoxItem>
+                                                <ComboBoxItem Content="Edema"></ComboBoxItem>
+                                                <ComboBoxItem Content="Erythema"></ComboBoxItem>
+                                                <ComboBoxItem Content="Fever"></ComboBoxItem>
+                                                <ComboBoxItem Content="Hives"></ComboBoxItem>
+                                                <ComboBoxItem Content="Itching"></ComboBoxItem>
+                                                <ComboBoxItem Content="Other"></ComboBoxItem>
+                                                <ComboBoxItem Content="Rash"></ComboBoxItem>
+                                                <ComboBoxItem Content="Short of breath"></ComboBoxItem>
+                                                <ComboBoxItem Content="Sneezing"></ComboBoxItem>
+                                                <ComboBoxItem Content="Swelling"></ComboBoxItem>
+                                                <ComboBoxItem Content="Unknown"></ComboBoxItem>
+                                                <ComboBoxItem Content="Urticaria"></ComboBoxItem>
+                                                <ComboBoxItem Content="Wheezing"></ComboBoxItem>
+                                            </ComboBox>-->
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <!--Date Entered-->
+                                <DataGridTextColumn Header="Entered" Width ="75" Binding="{Binding EnteredOn}" />
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+
+            <!-- Action Grid -->
+            <Grid Style="{StaticResource ActionGrid}">
+                <Grid.RowDefinitions>
+                    <!--<RowDefinition Height="Auto" />
+                            <RowDefinition Height="10" />-->
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="10" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <!--<StackPanel Grid.Row="0" Grid.Column="1">
+                            <Border BorderBrush="DarkGray" BorderThickness=".5" Padding="10">
+                                <StackPanel>
+                                    <TextBlock Text="Campus Key" Foreground="Red" HorizontalAlignment="Center" FontWeight="SemiBold" FontFamily="Arial"></TextBlock>
+                                    <TextBlock Text="East = Cornell, Westchester, Payne Whitney, Lower Manhattan" Foreground="Black" HorizontalAlignment="Left" FontWeight="SemiBold" FontFamily="Arial"></TextBlock>
+                                    <TextBlock Text="West = Milstein Hospital, CHONY, Allen Hospital" Foreground="Black" HorizontalAlignment="Left" FontWeight="SemiBold" FontFamily="Arial"></TextBlock>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>-->
+
+                <CheckBox Grid.Row="0" Grid.ColumnSpan="2" Content="I have verified the selected allergies from other NYP campuses with my patient." Style="{StaticResource AndroidCheckBoxStyle}" Foreground="Black" HorizontalAlignment="Center"/>
+                <Button Grid.Row="2" Grid.Column="1" Width="100" Margin="5" Content="Reconcile" Style="{StaticResource btn-success}" x:Name="reconcileButton"></Button>
+                <Button Grid.Row="2" Grid.Column="2" Width="100" Margin="5" Content="Close" Style="{StaticResource btn-danger}" x:Name="closeButton"></Button>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Window>
