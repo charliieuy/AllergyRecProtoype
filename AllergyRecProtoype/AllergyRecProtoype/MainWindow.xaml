@@ -170,16 +170,16 @@
                                         <DataTemplate>
                                             <StackPanel>
                                                 <wpf:AutoCompleteTextBox 
-                                                VerticalAlignment="Top"
-                                                Height="30"
-                                                Grid.Column="1"
-                                                DisplayMember="Name"
-                                                Watermark="Search Allergen"
-                                                IconPlacement="Left"
-                                                IconVisibility="Hidden"
-                                                ItemTemplateSelector="{StaticResource AllergenTemplateSelector}"
-                                                Provider="{StaticResource ResourceKey=provider}"
-                                                SelectedItem="{Binding Path=SelectedAllergen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                    VerticalAlignment="Top"
+                                                    Height="30"
+                                                    Grid.Column="1"
+                                                    DisplayMember="Name"
+                                                    Watermark="Search Allergen"
+                                                    IconPlacement="Left"
+                                                    IconVisibility="Hidden"
+                                                    ItemTemplateSelector="{StaticResource AllergenTemplateSelector}"
+                                                    Provider="{StaticResource ResourceKey=provider}"
+                                                    SelectedItem="{Binding Path=SelectedAllergen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
                                                 <wpf:AutoCompleteTextBox.LoadingContent>
                                                     <TextBlock Text="Loading..."
                                                             Margin="5"
@@ -197,7 +197,26 @@
                                     </DataGridTemplateColumn.Header>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-
+                                            <ComboBox>
+                                                <ComboBoxItem Content="Anaphylaxis"></ComboBoxItem>
+                                                <ComboBoxItem Content="Congestion"></ComboBoxItem>
+                                                <ComboBoxItem Content="Coughing"></ComboBoxItem>
+                                                <ComboBoxItem Content="Dizziness"></ComboBoxItem>
+                                                <ComboBoxItem Content="Eczema"></ComboBoxItem>
+                                                <ComboBoxItem Content="Edema"></ComboBoxItem>
+                                                <ComboBoxItem Content="Erythema"></ComboBoxItem>
+                                                <ComboBoxItem Content="Fever"></ComboBoxItem>
+                                                <ComboBoxItem Content="Hives"></ComboBoxItem>
+                                                <ComboBoxItem Content="Itching"></ComboBoxItem>
+                                                <ComboBoxItem Content="Other"></ComboBoxItem>
+                                                <ComboBoxItem Content="Rash"></ComboBoxItem>
+                                                <ComboBoxItem Content="Short of breath"></ComboBoxItem>
+                                                <ComboBoxItem Content="Sneezing"></ComboBoxItem>
+                                                <ComboBoxItem Content="Swelling"></ComboBoxItem>
+                                                <ComboBoxItem Content="Unknown"></ComboBoxItem>
+                                                <ComboBoxItem Content="Urticaria"></ComboBoxItem>
+                                                <ComboBoxItem Content="Wheezing"></ComboBoxItem>
+                                            </ComboBox>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
