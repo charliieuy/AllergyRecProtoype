@@ -14,7 +14,7 @@ namespace AllergyRecProtoype
 
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
-            if (item is Allergen)
+            if (item is AllergenViewModel)
                 return AllergenTemplate;
             return base.SelectTemplate(item, container);
         }

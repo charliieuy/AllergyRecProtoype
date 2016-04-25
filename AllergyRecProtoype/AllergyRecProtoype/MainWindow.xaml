@@ -4,6 +4,7 @@
         xmlns:wpf="http://wpfcontrols.com/"
         xmlns:local="clr-namespace:AllergyRecProtoype"
         xmlns:xtoolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:dotnetinputkit="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
         Title="MainWindow" Height="768" Width="1024">
     <Window.Resources>
         <ResourceDictionary>
@@ -161,15 +162,6 @@
                                     x:Name="reccDG" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
                                     ItemsSource="{Binding AllergyRecVMList, Mode=TwoWay}" IsReadOnly="True">
                             <DataGrid.Columns>
-                                <!--Reconcile Checkboxes-->
-                                <!--<DataGridTemplateColumn>
-                                    <DataGridTemplateColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <CheckBox Style="{StaticResource AndroidCheckBoxStyle}" Visibility="{Binding ShowReconcile}"></CheckBox>
-                                        </DataTemplate>
-                                    </DataGridTemplateColumn.CellTemplate>
-                                </DataGridTemplateColumn>-->
-                                <!--Allergen Autocomplete-->
                                 <DataGridTemplateColumn Width="*">
                                     <DataGridTemplateColumn.Header>
                                         <Label Content="Allergen" Foreground="White"/>
@@ -177,23 +169,22 @@
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <StackPanel>
-                                                <wpf:AutoCompleteTextBox VerticalAlignment="Top"
-                                                                 Visibility="{Binding ShowReconcile}"
-                                                                 Height="30"
-                                                                 Grid.Column="1"
-                                                                 DisplayMember="Name"
-                                                                 Watermark="Search Allergen"
-                                                                 IconPlacement="Left"
-                                                                 IconVisibility="Hidden"
-                                                                 ItemTemplateSelector="{StaticResource AllergenTemplateSelector}"
-                                                                 Provider="{StaticResource ResourceKey=provider}"
-                                                                 SelectedItem="{Binding Path=SelectedAllergen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-                                                                 x:Name="Actb">
-                                                    <wpf:AutoCompleteTextBox.LoadingContent>
-                                                        <TextBlock Text="Loading..."
-                                                                            Margin="5"
-                                                                            FontSize="14" />
-                                                    </wpf:AutoCompleteTextBox.LoadingContent>
+                                                <wpf:AutoCompleteTextBox 
+                                                VerticalAlignment="Top"
+                                                Height="30"
+                                                Grid.Column="1"
+                                                DisplayMember="Name"
+                                                Watermark="Search Allergen"
+                                                IconPlacement="Left"
+                                                IconVisibility="Hidden"
+                                                ItemTemplateSelector="{StaticResource AllergenTemplateSelector}"
+                                                Provider="{StaticResource ResourceKey=provider}"
+                                                SelectedItem="{Binding Path=SelectedAllergen, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+                                                <wpf:AutoCompleteTextBox.LoadingContent>
+                                                    <TextBlock Text="Loading..."
+                                                            Margin="5"
+                                                            FontSize="14" />
+                                                </wpf:AutoCompleteTextBox.LoadingContent>
                                                 </wpf:AutoCompleteTextBox>
                                             </StackPanel>
                                         </DataTemplate>
@@ -206,26 +197,7 @@
                                     </DataGridTemplateColumn.Header>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <!--<ComboBox Visibility="{Binding ShowReconcile}">
-                                                <ComboBoxItem Content="Anaphylaxis"></ComboBoxItem>
-                                                <ComboBoxItem Content="Congestion"></ComboBoxItem>
-                                                <ComboBoxItem Content="Coughing"></ComboBoxItem>
-                                                <ComboBoxItem Content="Dizziness"></ComboBoxItem>
-                                                <ComboBoxItem Content="Eczema"></ComboBoxItem>
-                                                <ComboBoxItem Content="Edema"></ComboBoxItem>
-                                                <ComboBoxItem Content="Erythema"></ComboBoxItem>
-                                                <ComboBoxItem Content="Fever"></ComboBoxItem>
-                                                <ComboBoxItem Content="Hives"></ComboBoxItem>
-                                                <ComboBoxItem Content="Itching"></ComboBoxItem>
-                                                <ComboBoxItem Content="Other"></ComboBoxItem>
-                                                <ComboBoxItem Content="Rash"></ComboBoxItem>
-                                                <ComboBoxItem Content="Short of breath"></ComboBoxItem>
-                                                <ComboBoxItem Content="Sneezing"></ComboBoxItem>
-                                                <ComboBoxItem Content="Swelling"></ComboBoxItem>
-                                                <ComboBoxItem Content="Unknown"></ComboBoxItem>
-                                                <ComboBoxItem Content="Urticaria"></ComboBoxItem>
-                                                <ComboBoxItem Content="Wheezing"></ComboBoxItem>
-                                            </ComboBox>-->
+
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

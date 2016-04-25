@@ -11,7 +11,7 @@ namespace AllergyRecProtoype
     {
         public System.Collections.IEnumerable GetSuggestions(string filter)
         {
-            var allergenList = DataManager.Instance.AllergenList;
+            var allergenList = DataManager.Instance.AllergenList.Select(a => new AllergenViewModel(a));
             return allergenList.Where(x => x.Name.ToLower().Contains(filter));
         }
     }

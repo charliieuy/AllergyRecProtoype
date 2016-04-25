@@ -19,6 +19,8 @@ namespace AllergyRecProtoype
             set { _allergens = value; OnPropertyChanged("Allergens"); }
         }
 
+        public IEnumerable<object> AllergenEnumerable { get { return Allergens.AsEnumerable(); } }
+
         public AllergyRecViewModel(AllergyRec allergyRec)
         {
             _allergyRec = allergyRec;
@@ -75,6 +77,7 @@ namespace AllergyRecProtoype
                 if (value != null)
                     _allergyRec.AllscriptsAllergen = new Allergen { Name = value.Name, Value = value.Value };
                 OnPropertyChanged("SelectedAllergen");
+
             }
         }
 
