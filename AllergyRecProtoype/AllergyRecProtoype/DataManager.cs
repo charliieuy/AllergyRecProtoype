@@ -25,17 +25,17 @@ namespace AllergyRecProtoype
         private DataManager() 
         {
             AllergyRecList = new List<AllergyRec> { 
-                new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Food", Allergen = "AGAR (FOOD)", Campus = "EAST" , Reactions = "Anaphylaxis", AllscriptsReactions = "", EnteredOn = "03/30/2016"},
-                new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Food", Allergen = "CAFEEINE (FOOD)", Campus = "EAST" , Reactions = "Fever", AllscriptsReactions = "", EnteredOn = "03/30/2016"},
-                new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Latex", Allergen = "LATEX", Campus = "EAST" , Reactions = "Unknown", AllscriptsReactions = "", EnteredOn = "03/30/2016"},
-                new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Drug Category", Allergen = "SHELLFISH", Campus = "EAST" , Reactions = "Dizziness; Edema",  AllscriptsReactions = "", EnteredOn = "03/30/2016"},
-                new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Environmental", Allergen = "ADHESIVE (ENV)", Campus = "EAST" , Reactions = "Congestion", AllscriptsReactions = "", EnteredOn = "03/30/2016"},
-                new AllergyRec { Reconcile = false, Category = "Drug Category", Type = "Allergy", Allergen = "4-aminoquinoines", Campus = "EAST" , Reactions = "Unknown", AllscriptsReactions = "", EnteredOn = "Just Now"},
-                new AllergyRec { Reconcile = true, Category = "Allergy", Type = "Allergies", Allergen = "Shelfish", Campus = "CROWN" , Reactions = "", AllscriptsReactions = "", EnteredOn = "N/A"},
-                new AllergyRec { Reconcile = true, Category = "Allergy", Type = "Allergies", Allergen = "Soy", Campus = "CROWN" , Reactions = "[Dry Mouth]", AllscriptsReactions = "", EnteredOn = "N/A"},
-                new AllergyRec { Reconcile = true, Category = "Allergy", Type = "Food", Allergen = "CAFEEINE (FOOD)", Campus = "WEST" , Reactions = "Fever", AllscriptsReactions = "", EnteredOn = "03/24/2016"},
-                new AllergyRec { Reconcile = true, Category = "Allergy", Type = "Latex", Allergen = "LATEX", Campus = "WEST" , Reactions = "Unknown", AllscriptsReactions = "", EnteredOn = "03/21/2016"},
-                new AllergyRec { Reconcile = true, Category = "Intolerance", Type = "Drug", Allergen = "omega-3 polyunsaturated fatty acids", Campus = "WEST" , Reactions = "Cramps; Diarrhea", AllscriptsReactions = "", EnteredOn = "03/21/2016"},
+                new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Food", Allergen = "AGAR (FOOD)", Campus = "EAST" , Reactions = "Anaphylaxis", EnteredOn = "03/30/2016"},
+                new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Food", Allergen = "CAFEEINE (FOOD)", Campus = "EAST" , Reactions = "Fever", EnteredOn = "03/30/2016"},
+                new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Latex", Allergen = "LATEX", Campus = "EAST" , Reactions = "Unknown", EnteredOn = "03/30/2016"},
+                new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Drug Category", Allergen = "SHELLFISH", Campus = "EAST" , Reactions = "Dizziness; Edema", EnteredOn = "03/30/2016"},
+                new AllergyRec { Reconcile = false, Category = "Allergy", Type = "Environmental", Allergen = "ADHESIVE (ENV)", Campus = "EAST" , Reactions = "Congestion", EnteredOn = "03/30/2016"},
+                new AllergyRec { Reconcile = false, Category = "Drug Category", Type = "Allergy", Allergen = "4-aminoquinoines", Campus = "EAST" , Reactions = "Unknown", EnteredOn = "Just Now"},
+                new AllergyRec { Reconcile = true, Category = "Allergy", Type = "Allergies", Allergen = "Shelfish", Campus = "CROWN" , Reactions = "", EnteredOn = "N/A"},
+                new AllergyRec { Reconcile = true, Category = "Allergy", Type = "Allergies", Allergen = "Soy", Campus = "CROWN" , Reactions = "[Dry Mouth]", EnteredOn = "N/A"},
+                new AllergyRec { Reconcile = true, Category = "Allergy", Type = "Food", Allergen = "CAFEEINE (FOOD)", Campus = "WEST" , Reactions = "Fever", EnteredOn = "03/24/2016"},
+                new AllergyRec { Reconcile = true, Category = "Allergy", Type = "Latex", Allergen = "LATEX", Campus = "WEST" , Reactions = "Unknown", EnteredOn = "03/21/2016"},
+                new AllergyRec { Reconcile = true, Category = "Intolerance", Type = "Drug", Allergen = "omega-3 polyunsaturated fatty acids", Campus = "WEST" , Reactions = "Cramps; Diarrhea", EnteredOn = "03/21/2016"},
             };
 
             AllergenList = new List<Allergen>
@@ -66,20 +66,20 @@ namespace AllergyRecProtoype
                 new Reaction { Name = "Congestion", Value = 2 },
                 new Reaction { Name = "Coughing", Value = 3 },
                 new Reaction { Name = "Dizziness", Value = 4 },
-                new Reaction { Name = "Eczema", Value = 0 },
-                new Reaction { Name = "Edema", Value = 0 },
-                new Reaction { Name = "Erythema", Value = 0 },
-                new Reaction { Name = "Fever", Value = 0 },
-                new Reaction { Name = "Hives", Value = 0 },
-                new Reaction { Name = "Itching", Value = 0 },
-                new Reaction { Name = "Other", Value = 0 },
-                new Reaction { Name = "Rash", Value = 0 },
-                new Reaction { Name = "Short of breath", Value = 0 },
-                new Reaction { Name = "Sneezing", Value = 0 },
-                new Reaction { Name = "Swelling", Value = 0 },
-                new Reaction { Name = "Unknown", Value = 0 },
-                new Reaction { Name = "Urticaria", Value = 0 },
-                new Reaction { Name = "Wheezing", Value = 0 }
+                new Reaction { Name = "Eczema", Value = 5 },
+                new Reaction { Name = "Edema", Value = 6 },
+                new Reaction { Name = "Erythema", Value = 7 },
+                new Reaction { Name = "Fever", Value = 8 },
+                new Reaction { Name = "Hives", Value = 9 },
+                new Reaction { Name = "Itching", Value = 10 },
+                new Reaction { Name = "Other", Value = 11 },
+                new Reaction { Name = "Rash", Value = 12 },
+                new Reaction { Name = "Short of breath", Value = 13 },
+                new Reaction { Name = "Sneezing", Value = 14 },
+                new Reaction { Name = "Swelling", Value = 15 },
+                new Reaction { Name = "Unknown", Value = 16 },
+                new Reaction { Name = "Urticaria", Value = 17 },
+                new Reaction { Name = "Wheezing", Value = 18 }
             };
         }
 

@@ -2,15 +2,13 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:wpf="http://wpfcontrols.com/"
+        xmlns:custom="clr-namespace:MultiSelectComboBox;assembly=MultiSelectComboBox"
         xmlns:local="clr-namespace:AllergyRecProtoype"
-        xmlns:xtoolkit="http://schemas.xceed.com/wpf/xaml/toolkit"
-        xmlns:dotnetinputkit="clr-namespace:System.Windows.Controls;assembly=DotNetProjects.Input.Toolkit"
         Title="MainWindow" Height="768" Width="1024">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="pack://application:,,,/Style/Style.xaml"/>
-                <ResourceDictionary Source="pack://application:,,,/Style/ComboBox.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             <local:SuggestionProvider x:Key="provider" />
             <DataTemplate x:Key="allergenTemplate">
@@ -197,26 +195,12 @@
                                     </DataGridTemplateColumn.Header>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <ComboBox>
-                                                <ComboBoxItem Content="Anaphylaxis"></ComboBoxItem>
-                                                <ComboBoxItem Content="Congestion"></ComboBoxItem>
-                                                <ComboBoxItem Content="Coughing"></ComboBoxItem>
-                                                <ComboBoxItem Content="Dizziness"></ComboBoxItem>
-                                                <ComboBoxItem Content="Eczema"></ComboBoxItem>
-                                                <ComboBoxItem Content="Edema"></ComboBoxItem>
-                                                <ComboBoxItem Content="Erythema"></ComboBoxItem>
-                                                <ComboBoxItem Content="Fever"></ComboBoxItem>
-                                                <ComboBoxItem Content="Hives"></ComboBoxItem>
-                                                <ComboBoxItem Content="Itching"></ComboBoxItem>
-                                                <ComboBoxItem Content="Other"></ComboBoxItem>
-                                                <ComboBoxItem Content="Rash"></ComboBoxItem>
-                                                <ComboBoxItem Content="Short of breath"></ComboBoxItem>
-                                                <ComboBoxItem Content="Sneezing"></ComboBoxItem>
-                                                <ComboBoxItem Content="Swelling"></ComboBoxItem>
-                                                <ComboBoxItem Content="Unknown"></ComboBoxItem>
-                                                <ComboBoxItem Content="Urticaria"></ComboBoxItem>
-                                                <ComboBoxItem Content="Wheezing"></ComboBoxItem>
-                                            </ComboBox>
+                                            <custom:MultiSelectComboBox
+                                                Width="Auto" 
+                                                Height="Auto" 
+                                                ItemsSource="{Binding ReactionsDictionary}" 
+                                                SelectedItems="{Binding SelectedReactions}"
+                                                x:Name="MC"/>
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>

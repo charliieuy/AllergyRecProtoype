@@ -31,3 +31,19 @@ C:\Users\cau9006\Documents\Visual Studio 2015\Projects\MultiSelectComboBox Demo(
 C:\Users\cau9006\Documents\Visual Studio 2015\Projects\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo.g.resources
 C:\Users\cau9006\Documents\Visual Studio 2015\Projects\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo.Properties.Resources.resources
 C:\Users\cau9006\Documents\Visual Studio 2015\Projects\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo.csproj.GenerateResource.Cache
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo.exe
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo.pdb
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\bin\Debug\MultiSelectDemo.exe
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\bin\Debug\MultiSelectDemo.pdb
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\bin\Debug\MultiSelectComboBox.dll
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\bin\Debug\MultiSelectComboBox.pdb
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo.csprojResolveAssemblyReference.cache
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MainWindow.g.cs
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\App.g.cs
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo_MarkupCompile.cache
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo_MarkupCompile.lref
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MainWindow.baml
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo.g.resources
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo.Properties.Resources.resources
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\MultiSelectComboBox Demo(MVVM)\MultiSelectDemo\obj\x86\Debug\MultiSelectDemo.csproj.GenerateResource.Cache

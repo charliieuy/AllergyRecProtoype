@@ -16,8 +16,13 @@ namespace AllergyRecProtoype
         public string Allergen { get; set; }
         public string Reactions { get; set; }
         public Allergen AllscriptsAllergen { get; set; }
-        public string AllscriptsReactions { get; set; }
+        public List<Reaction> AllscriptsReactions { get; set; }
         public string EnteredOn { get; set; }
-        public List<Reaction> ReactionList { get; set; }
+
+        public AllergyRec()
+        {
+            AllscriptsAllergen = new Allergen();
+            AllscriptsReactions = new List<Reaction>();
+        }
     }
 }

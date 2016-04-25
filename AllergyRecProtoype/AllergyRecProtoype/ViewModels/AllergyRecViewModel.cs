@@ -18,19 +18,46 @@ namespace AllergyRecProtoype
             get { return _allergens; }
             set { _allergens = value; OnPropertyChanged("Allergens"); }
         }
-
+        /// <summary>
+        /// IEnumerable required for AutoComplete control provider
+        /// </summary>
         public IEnumerable<object> AllergenEnumerable { get { return Allergens.AsEnumerable(); } }
+
+        private List<ReactionViewModel> _reactionsList;
+        public List<ReactionViewModel> ReactionsList
+        {
+            get { return _reactionsList; }
+            set { _reactionsList = value; OnPropertyChanged("ReactionsList"); }
+        }
+        /// <summary>
+        /// Multi-Select ComboBox requires dictionary structure
+        /// </summary>
+        public Dictionary<string, object> ReactionsDictionary
+        {
+            get
+            {
+                var Items = new Dictionary<string, object>();
+                _reactionsList.ForEach(r => Items.Add(r.Name, r));
+                return Items;
+            }
+        }
 
         public AllergyRecViewModel(AllergyRec allergyRec)
         {
             _allergyRec = allergyRec;
+
+            // Add allergens from data manager to viewmodel property
             _allergens = new List<AllergenViewModel>();
             DataManager.Instance.AllergenList.ForEach(x => _allergens.Add(new AllergenViewModel(x)));
-
+            // Default selected allergen to empty
             SelectedAllergen = new AllergenViewModel(new Allergen { Name = "", Value = 0 });
             SelectedAllergen.PropertyChanged += (s, e) => { Console.WriteLine("SubItem PropertyChanged"); };
 
-            //_allergens = DataManager.Instance.AllergenList.Select(x => new AllergenViewModel(x)).ToList();
+            // Add reactions from data manager to viewmodel property
+            _reactionsList = new List<ReactionViewModel>();
+            DataManager.Instance.ReactionList.ForEach(x => _reactionsList.Add(new ReactionViewModel(x)));
+            // Default selected reactions to empty
+            SelectedReactions = new List<ReactionViewModel>();
         }
 
         public bool Reconcile
@@ -81,10 +108,14 @@ namespace AllergyRecProtoype
             }
         }
 
-        public string AllscriptsReactions
+        public List<ReactionViewModel> SelectedReactions
         {
-            get { return _allergyRec.AllscriptsReactions; }
-            set { _allergyRec.AllscriptsReactions = value; OnPropertyChanged("AllscriptsReactions"); }
+            get { return _allergyRec.AllscriptsReactions.Select(r => new ReactionViewModel(r)).ToList(); }
+            set
+            {
+                value.ForEach(r => _allergyRec.AllscriptsReactions.Add(new Reaction { }));
+                OnPropertyChanged("AllscriptsReactions");
+            }
         }
 
         public string EnteredOn
