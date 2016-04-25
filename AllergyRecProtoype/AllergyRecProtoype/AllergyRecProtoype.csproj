@@ -172,6 +172,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\MultiSelectComboBox Demo%28MVVM%29\MultiSelectComboBox\MultiSelectComboBox.csproj">
+      <Project>{ce17a54e-0661-429f-afdc-272e8668b14e}</Project>
+      <Name>MultiSelectComboBox</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\wpfautocomplete\WpfControls.CS\WpfControls.CS.csproj">
       <Project>{bb2abb74-ba58-4812-83aa-ec8171f42df4}</Project>
       <Name>WpfControls.CS</Name>

@@ -105,3 +105,5 @@ C:\Users\cau9006\Source\Repos\AllergyRecProtoype\AllergyRecProtoype\AllergyRecPr
 C:\Users\cau9006\Source\Repos\AllergyRecProtoype\AllergyRecProtoype\AllergyRecProtoype\bin\Debug\DotNetProjects.Layout.Toolkit.pdb
 C:\Users\cau9006\Source\Repos\AllergyRecProtoype\AllergyRecProtoype\AllergyRecProtoype\bin\Debug\DotNetProjects.WPF.Themes.pdb
 C:\Users\cau9006\Source\Repos\AllergyRecProtoype\AllergyRecProtoype\AllergyRecProtoype\obj\Debug\AllergyRecProtoype.csprojResolveAssemblyReference.cache
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\AllergyRecProtoype\AllergyRecProtoype\bin\Debug\MultiSelectComboBox.dll
+C:\Users\cau9006\Source\Repos\AllergyRecProtoype\AllergyRecProtoype\AllergyRecProtoype\bin\Debug\MultiSelectComboBox.pdb
