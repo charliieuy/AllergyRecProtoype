@@ -7,7 +7,12 @@
     <Window.Resources>
         <ViewModel:ViewModel x:Key="ViewModel"/>
     </Window.Resources>
-    <Grid  DataContext="{Binding Source={StaticResource ViewModel}}">
-        <control:MultiSelectComboBox Width="200" Height="30" ItemsSource="{Binding Items}" SelectedItems="{Binding SelectedItems}" x:Name="MC" />
+    <Grid  
+        DataContext="{Binding Source={StaticResource ViewModel}}">
+        <control:MultiSelectComboBox 
+            Width="200" Height="30" 
+            ItemsSource="{Binding Items}" 
+            SelectedItems="{Binding Path=SelectedItems, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            x:Name="MC" />
     </Grid>
 </Window>

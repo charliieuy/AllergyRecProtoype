@@ -21,7 +21,7 @@
     </Window.Resources>
     <Grid>
         <StackPanel>
-            <!--Patient Information Grid-->
+            <!-- Patient Information Grid -->
             <Grid Style="{StaticResource PatientInfoGrid}">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="10" />
@@ -65,7 +65,7 @@
                 </StackPanel>
             </Grid>
 
-            <!--Allergy Information DataGrid-->
+            <!-- Allergy Information DataGrid -->
             <Border BorderBrush="Gray" BorderThickness="1" Margin="5,0,5,0">
                 <ScrollViewer>
                     <Grid Style="{StaticResource DataGrid}">
@@ -77,11 +77,11 @@
                         </Grid.RowDefinitions>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
-                            <ColumnDefinition Width="50" />
+                            <ColumnDefinition Width="Auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
 
-                        <!--Current Allergies-->
+                        <!-- Current Allergies -->
                         <TextBlock Grid.Row="0" Grid.ColumnSpan="3" Text="Current Allergies" 
                                         Foreground="#428bca" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="15" Margin="5"></TextBlock>
                         <DataGrid Grid.Row="1" Grid.ColumnSpan="3" AutoGenerateColumns="False" 
@@ -96,9 +96,9 @@
                             </DataGrid.Columns>
                         </DataGrid>
 
-                        <!--Reconcile Allergies-->
+                        <!-- Reconcile Allergies -->
                         <TextBlock Grid.Row="2" Grid.ColumnSpan="3" Text="ATTENTION: Additional Allergies Found at Other Campuses" 
-                                        Foreground="#d9534f" FontWeight="SemiBold" HorizontalAlignment="Left" FontSize="15" Margin="5"></TextBlock>
+                                        Foreground="#d9534f" FontWeight="Bold" HorizontalAlignment="Center" FontSize="15" Margin="5"></TextBlock>
                         <DataGrid Grid.Row="3" Grid.Column="0" AutoGenerateColumns="False" 
                                     x:Name="allergyRecDG" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
                                     ItemsSource="{Binding AllergyRecVMList, Mode=TwoWay}" IsReadOnly="True">
@@ -111,13 +111,23 @@
                             </DataGrid.Columns>
                         </DataGrid>
 
-                        <!--Reconcile Action-->
-                        <DataGrid Grid.Row="3" Grid.Column="1"  AutoGenerateColumns="False" 
+                        <!-- Reconcile Action -->
+                        <DataGrid Grid.Row="3" Grid.Column="1"  AutoGenerateColumns="False" Height="{Binding ActualHeight, ElementName=allergyRecDG}"
                                     x:Name="actionDG" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
                                     ItemsSource="{Binding AllergyRecVMList, Mode=TwoWay}" IsReadOnly="True" 
                                     GridLinesVisibility="None" BorderThickness="0">
+                            <DataGrid.RowStyle>
+                                <Style TargetType="{x:Type DataGridRow}">
+                                    <Style.Triggers>
+                                        <Trigger Property="IsSelected" Value="True">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Setter Property="Background" Value="White" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </DataGrid.RowStyle>
                             <DataGrid.Columns>
-                                <!--Reconcile Checkboxes-->
+                                <!-- Reconcile Checkboxes -->
                                 <DataGridTemplateColumn>
                                     <DataGridTemplateColumn.HeaderStyle>
                                         <Style TargetType="DataGridColumnHeader">
@@ -127,8 +137,9 @@
                                     </DataGridTemplateColumn.HeaderStyle>
                                     <DataGridTemplateColumn.CellStyle>
                                         <Style TargetType="DataGridCell">
+                                            <Setter Property="Height" Value="30"/>
                                             <Setter Property="BorderThickness" Value="0"/>
-                                            <!--<Setter Property="Padding" Value="2"/>
+                                            <Setter Property="Padding" Value="2"/>
                                             <Setter Property="Template">
                                                 <Setter.Value>
                                                     <ControlTemplate TargetType="{x:Type DataGridCell}">
@@ -139,9 +150,12 @@
                                                         </Border>
                                                     </ControlTemplate>
                                                 </Setter.Value>
-                                            </Setter>-->
+                                            </Setter>
                                             <Style.Triggers>
                                                 <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="White"/>
+                                                </Trigger>
+                                                <Trigger Property="DataGridRow.IsSelected" Value="True">
                                                     <Setter Property="Background" Value="White"/>
                                                 </Trigger>
                                             </Style.Triggers>
@@ -149,13 +163,27 @@
                                     </DataGridTemplateColumn.CellStyle>
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
-                                            <!--<CheckBox Style="{StaticResource AndroidCheckBoxStyle}" Visibility="{Binding ShowReconcile}"></CheckBox>-->
+                                            <Button Background="#5cb85c" >
+                                                <Button.Template>
+                                                    <ControlTemplate TargetType="Button">
+                                                        <Grid>
+                                                            <StackPanel Orientation="Horizontal">
+                                                                <Rectangle Width="20" Height="14" Stroke="{TemplateBinding Background}" Fill="{TemplateBinding Background}" VerticalAlignment="Center"/>
+                                                                <Polygon Points= "0,0 15,11,0,20" Stroke="{TemplateBinding Background}" Fill="{TemplateBinding Background}" VerticalAlignment="Center" />
+                                                            </StackPanel>
+                                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                                        </Grid>
+                                                    </ControlTemplate>
+                                                </Button.Template>
+                                            </Button>
+                                            <!-- <CheckBox Style="{StaticResource AndroidCheckBoxStyle}" Visibility="{Binding ShowReconcile}"></CheckBox> -->
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
                             </DataGrid.Columns>
                         </DataGrid>
-                        
+
+                        <!-- Reconcile Selection -->
                         <DataGrid Grid.Row="3" Grid.Column="2"  AutoGenerateColumns="False" 
                                     x:Name="reccDG" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"
                                     ItemsSource="{Binding AllergyRecVMList, Mode=TwoWay}" IsReadOnly="True">
@@ -188,7 +216,7 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <!--Reactions Combobox-->
+                                <!-- Reactions Combobox -->
                                 <DataGridTemplateColumn Width="*">
                                     <DataGridTemplateColumn.Header>
                                         <Label Content="Reactions" Foreground="White"/>
@@ -204,7 +232,7 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <!--Date Entered-->
+                                <!-- Date Entered -->
                                 <DataGridTextColumn Header="Entered" Width ="75" Binding="{Binding EnteredOn}" />
                             </DataGrid.Columns>
                         </DataGrid>
@@ -212,11 +240,11 @@
                 </ScrollViewer>
             </Border>
 
-            <!-- Action Grid -->
+            <!--  Action Grid  -->
             <Grid Style="{StaticResource ActionGrid}">
                 <Grid.RowDefinitions>
-                    <!--<RowDefinition Height="Auto" />
-                            <RowDefinition Height="10" />-->
+                    <!-- <RowDefinition Height="Auto" />
+                            <RowDefinition Height="10" /> -->
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="10" />
                     <RowDefinition Height="Auto" />
@@ -227,7 +255,7 @@
                     <ColumnDefinition Width="Auto" />
                 </Grid.ColumnDefinitions>
 
-                <!--<StackPanel Grid.Row="0" Grid.Column="1">
+                <!-- <StackPanel Grid.Row="0" Grid.Column="1">
                             <Border BorderBrush="DarkGray" BorderThickness=".5" Padding="10">
                                 <StackPanel>
                                     <TextBlock Text="Campus Key" Foreground="Red" HorizontalAlignment="Center" FontWeight="SemiBold" FontFamily="Arial"></TextBlock>
@@ -235,7 +263,7 @@
                                     <TextBlock Text="West = Milstein Hospital, CHONY, Allen Hospital" Foreground="Black" HorizontalAlignment="Left" FontWeight="SemiBold" FontFamily="Arial"></TextBlock>
                                 </StackPanel>
                             </Border>
-                        </StackPanel>-->
+                        </StackPanel> -->
 
                 <CheckBox Grid.Row="0" Grid.ColumnSpan="2" Content="I have verified the selected allergies from other NYP campuses with my patient." Style="{StaticResource AndroidCheckBoxStyle}" Foreground="Black" HorizontalAlignment="Center"/>
                 <Button Grid.Row="2" Grid.Column="1" Width="100" Margin="5" Content="Reconcile" Style="{StaticResource btn-success}" x:Name="reconcileButton"></Button>

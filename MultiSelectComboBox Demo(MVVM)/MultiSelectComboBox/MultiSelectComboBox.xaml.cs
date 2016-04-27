@@ -32,11 +32,11 @@ namespace MultiSelectComboBox
 
         public static readonly DependencyProperty ItemsSourceProperty =
              DependencyProperty.Register("ItemsSource", typeof(Dictionary<string, object>), typeof(MultiSelectComboBox), new FrameworkPropertyMetadata(null,
-        new PropertyChangedCallback(MultiSelectComboBox.OnItemsSourceChanged)));
+        new PropertyChangedCallback(OnItemsSourceChanged)));
 
         public static readonly DependencyProperty SelectedItemsProperty =
          DependencyProperty.Register("SelectedItems", typeof(Dictionary<string, object>), typeof(MultiSelectComboBox), new FrameworkPropertyMetadata(null,
-     new PropertyChangedCallback(MultiSelectComboBox.OnSelectedItemsChanged)));
+     new PropertyChangedCallback(OnSelectedItemsChanged)));
 
         public static readonly DependencyProperty TextProperty =
            DependencyProperty.Register("Text", typeof(string), typeof(MultiSelectComboBox), new UIPropertyMetadata(string.Empty));
@@ -58,10 +58,7 @@ namespace MultiSelectComboBox
         public Dictionary<string, object> SelectedItems
         {
             get { return (Dictionary<string, object>)GetValue(SelectedItemsProperty); }
-            set
-            {
-                SetValue(SelectedItemsProperty, value);
-            }
+            set { SetValue(SelectedItemsProperty, value); }
         }
 
         public string Text
@@ -119,7 +116,6 @@ namespace MultiSelectComboBox
             }
             SetSelectedItems();
             SetText();
-
         }
         #endregion
 
@@ -183,8 +179,8 @@ namespace MultiSelectComboBox
                         displayText.Append(',');
                     }
                 }
-                this.Text = displayText.ToString().TrimEnd(new char[] { ',' }); 
-            }           
+                this.Text = displayText.ToString().TrimEnd(new char[] { ',' });
+            }
             // set DefaultText if nothing else selected
             if (string.IsNullOrEmpty(this.Text))
             {
@@ -192,7 +188,7 @@ namespace MultiSelectComboBox
             }
         }
 
-       
+
         #endregion
     }
 
@@ -238,10 +234,7 @@ namespace MultiSelectComboBox
         public event PropertyChangedEventHandler PropertyChanged;
         protected void NotifyPropertyChanged(string propertyName)
         {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
     }
